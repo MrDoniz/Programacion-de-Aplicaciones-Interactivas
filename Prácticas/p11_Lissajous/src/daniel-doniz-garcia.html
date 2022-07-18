@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Lissajous Curves</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An interactive demonstration of Lissajous curves.">
+    <link rel="stylesheet" href="/css/web/main.css">
+    <script type="module" src="js/tablero-client2.js"></script>
+  </head>
+  <body class='body--shaded  layout--demo ' onload="ejecutar(1200, 800, 100);">
+    <div class="header">
+      <div class="header-upper">
+        <div class="header-inner">
+          <a class="logo" href="/">Daniel Dóniz García - alu0101217277</a>
+          <ul class="nav nav--primary">
+            <li><a class="" href="coverage/lcov-report/">Coverage</a></li>
+            <li><a class="" href="https://github.com/ULL-ESIT-PAI-2021-2022/2021-2022-pai-p11-lissajous-MrDoniz">Github</a></li>
+            <li><a class="" href="https://exercism.org/tracks/javascript/">Exercism</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="header-lower">
+        <div class="header-inner">
+          <ul class="nav nav--secondary">
+            <li><a class="mobile-hide " href="index.html">Home</a></li>
+            <li><a class="mobile-hide " href="docs/index.html">Documentación</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="main">
+        <div class="preamble">
+          <h1>Lissajous Curves</h1>
+          <hr>
+        </div>
+        <div id="demo"  class="">
+          <canvas id ="canvas" width="800" height="800" style="border: 10px solid #999;"></canvas>
+        </div>
+        <div class="clearfix" id="ui-container">
+          <div id="slidecontainer">
+            <button class='animar' id="animar">Animar</button>
+            <button class='aumentar' id="aumentar">Aumentar</button>
+            <button class='disminuir' id="disminuir">Disminuir</button>
+            <button class='ocultar' id="ocultar">cultar</button>
+          </div>
+        </div>
+        <div class="demo-description">
+          <hr>
+          <p>Una curva de Lissajous, llamada así por Jules Antoine Lissajous, es un gráfico de las siguientes dos ecuaciones paramétricas:</p>
+          <p>
+          x =  A sin (at + pi)
+          y =  B sin (bt)
+          <p>
+            A y B representan amplitudes en elydirecciones,yson constantes yes un ángulo de fase. La interfaz de usuario anterior le permite modificar cada uno de estos cinco parámetros y ver cómo se ve afectado el gráfico. los valores deytienen un efecto particularmente fuerte en la forma de la curva. 
+          </p>
+          <p>
+            a determina el número de "lóbulos" alineados horizontalmente ydetermina el número de lóbulos alineados verticalmente. por ejemplo paraydeberías ver 3 lóbulos horizontales y 2 verticales. Es posible que deba ajustarpara ver claramente los lóbulos, ya que a veces se superponen para ciertos valores de. También tenga en cuenta que el gráfico con, digamos, yserá idéntica a la gráfica deyya que es específicamente la relación la que afecta la forma del gráfico.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer-inner">
+        <p>
+          <span class="footer-link"></span> 
+          &copy; Daniel Dóniz García<br> 
+          <a href="https://github.com/mrdoniz">GitHub.com</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
