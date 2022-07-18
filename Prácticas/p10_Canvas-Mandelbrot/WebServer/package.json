@@ -1,0 +1,15 @@
+{
+  "name": "node-express-static-web-server",
+  "version": "1.0.0",
+  "description": "Node Express Static Web Server",
+  "scripts": {
+    "start": "node web-server/app.js",
+    "cov": "NODE_OPTIONS=--experimental-vm-modules npx jest --coverage --verbose",
+    "coverage": "jest --coverage --verbose"
+  },
+  "author": "Kevin Chisholm",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}

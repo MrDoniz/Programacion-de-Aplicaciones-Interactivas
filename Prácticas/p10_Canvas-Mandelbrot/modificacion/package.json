@@ -1,0 +1,32 @@
+{
+  "name": "2021-2022_p10_canvas-mandelbrot",
+  "version": "1.0.0",
+  "description": "This directory is organised as follows:",
+  "main": "./src/js/mandelbrot.js",
+  "type": "module",
+  "directories": {
+    "test": "test",
+    "src": "src"
+  },
+  "dependencies": {
+    "canvas": "^2.7.0",
+    "chai-http": "^4.3.0",
+    "codecov": "^3.8.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.3",
+    "mocha": "^8.3.1",
+    "nyc": "^15.1.0",
+    "jsdoc": "^3.6.6"
+  },
+  "scripts": {
+    "start": "node web-server/app.js",
+    "test": "nyc mocha",
+    "generate-docs": "jsdoc -c /home/usuario/practicas/2021-2022-pai-p10-canvas-mandelbrot-MrDoniz/src/conf.json -R README.md",
+    "coverage": "nyc npm test",
+    "validate": "cat codecov.yml | curl --data-binary @- https://codecov.io/validate",
+    "report": "nyc --reporter=json mocha",
+    "codecov": "curl -s https://codecov.io/bash | bash"
+  }
+}

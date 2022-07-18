@@ -1,0 +1,55 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mandelbrot</title>
+</head>
+<body>
+  <canvas id="myCanvas" style="border:1px solid #000000;">
+  <script type="module">
+    import {Complejo} from '/complejo/complejo-class.js';
+    import {Mandelbrot} from '/mandelbrot/mandelbrot-class.js';
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    var imgData = ctx.createImageData(c.width, c.height);
+    var d = imgData.data;
+    var WIDTH = c.width;
+    var HEIGHT = c.height;
+    var MAX_ITER = 80;
+    var RE_START = -2;
+    var RE_END = 1;
+    var IM_START = -1;
+    var IM_END = 1;
+    var draw = function(coordX, coordY, color) {
+      var index = (coordX + coordY * WIDTH);
+      d[index] = color[0];
+      d[index + 1] = color[1];
+      d[index + 2] = color[2];
+      d[index + 3] = 255;
+    };
+    const objeto = new Mandelbrot(4, MAX_ITER);
+    for (var coordX = 0; coordX < WIDTH; coordX++) {
+      for (var coordY = 0; coordY < HEIGHT; coordY++) {
+        let value;
+        var c = new Complejo(RE_START + (coordX / WIDTH) * (RE_END - RE_START),
+                        IM_START + (coordY / HEIGHT) * (IM_END - IM_START));
+        var m = objeto.calculoDeArea(c);
+        var hue = parseInt((255 * m / MAX_ITER));
+        
+        if (m < MAX_ITER)
+          value = 255
+        else
+          value = 0
+          var saturation = 255;
+        draw(coordX, coordY, [hue, saturation, value]);
+      }
+    }
+    ctx.putImageData(imgData, 0, 0);
+    // escribe dos numeros en una esquina del canvas
+    ctx.font = "12px Arial";
+    ctx.fillText("Area: " + objeto.getArea(), WIDTH - 70, HEIGHT - 15);
+    ctx.fillText("Error: " + objeto.getError(), WIDTH - 100, HEIGHT - 5);
+
+  </script>
+  </canvas> 
+</body>
+</html>
