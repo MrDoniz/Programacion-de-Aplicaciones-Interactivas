@@ -1,0 +1,43 @@
+
+
+
+
+
+
+
+const paisMasPobladoDelMundo = require('../src/country-stats.js');
+const paisMasPobladoDelMundo = require('../src/country-stats.js');
+const paisMenosPobladoDelMundo = require('../src/country-stats.js');
+const paisConMayorDensidadDePoblacionEnAmerica =
+  require('../src/country-stats.js');
+const tresPaisesConMayorEsperanzaDeVidaDeCadaUnoDeLosContinentes =
+  require('../src/country-stats.js');
+const mediaDeLaAlturaDeLosHombresPorContinente =
+  require('../src/country-stats.js');
+const porcentajesDeLasCincoReligionesMasExtendidas =
+  require('../src/country-stats.js');
+const paisesConTemperaturaMasBajaPorContinente =
+  require('../src/country-stats.js');
+
+test('Valid dates', () => {
+  expect(paisMasPobladoDelMundo()).toBe('The most populated country is:  China  with 1409517397 habitants.');
+});
+
+
+
+
+
+describe('Error argumentos', () => {
+  test('No hay argumento', () => {
+    expect(() => comprueboEntrada())
+        .toThrow('No se han introducido los números correctos.');
+  });
+  test('null', () => {
+    expect(() => comprueboEntrada(null))
+        .toThrow('No se han introducido los números correctos.');
+  });
+  test('undefined', () => {
+    expect(() => comprueboEntrada(undefined))
+        .toThrow('No se han introducido los números correctos.');
+  });
+});
