@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Mueve la bola</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mueve la bola.">
+    <link rel="stylesheet" href="/css/main.css">
+    <script type="module" src="js/cliente.js"></script>
+  </head>
+  <body class='body--shaded  layout--demo ' onload="ejecutar(1200, 800, 100);">
+    <div class="wrapper">
+      <div class="main">
+        <div id="demo"  class="">
+          <canvas id ="canvas" width="724" height="562" style="border: 10px solid #999;"></canvas>
+          <div class="clearfix" id="ui-container">
+            <div id="slidecontainer">
+              <button class="Noroeste" id="Noroeste" style="width: 30%;">NO</button><button class="arriba" id="arriba"style="width: 40%;">Arriba</button><button class="noreste" id="noreste" style="width: 30%;">NE</button>
+
+              <button class="izquierda" id="izquierda" style="width: 50%;">Izquierda</button><button class="derecha" id="derecha" style="width: 50%;">Derecha</button>
+
+              <button class="Sureste" id="Sureste" style="width: 30%;">SE</button><button class="abajo" id="abajo"style="width: 40%;">Abajo</button><button class="Suroeste" id="Suroeste" style="width: 30%;">SO</button>
+              
+              <br><input type="checkbox" id="checkBoxTecladoAuto" name="checkbox" value="checkBoxTecladoAuto"> Teclado automático
+              <br><input type="checkbox" id="checkBoxImagen" name="checkbox" value="checkBoxImagen"> Imagen
+              <br><input type="checkbox" id="escalar" name="checkbox" value="escalar"> Escalar ventana
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

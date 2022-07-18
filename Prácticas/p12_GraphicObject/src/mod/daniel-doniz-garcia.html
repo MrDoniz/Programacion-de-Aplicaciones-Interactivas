@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Mueve la bola</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mueve la bola.">
+    <link rel="stylesheet" href="/css/main.css">
+    <script type="module" src="js/juego-cliente.js"></script>
+  </head>
+  <body class='body--shaded  layout--demo ' onload="ejecutar(1200, 800, 100);">
+    <div>
+      <div class="main">
+        <div id="demo"  class="">
+          <canvas id ="canvas" width="724" height="562" style="border: 10px solid #999;"></canvas>
+          <div class="clearfix" id="ui-container">
+            <div id="slidecontainer">
+              Roja:
+              <button class="arriba" id="arriba">Arriba</button>
+              <button class="izquierda" id="izquierda" style="width: 50%;">Izquierda</button><button class="derecha" id="derecha" style="width: 50%;">Derecha</button>
+              <button class="abajo" id="abajo">Abajo</button>
+              <input type="text" id="velocidad" placeholder="Velocidad">
+              <button class="enviar" id="enviar">Enviar</button>
+              <div style ="margin-top: 130px"></div>
+              Azul
+              <button class="arriba1" id="arriba1">Arriba</button>
+              <button class="izquierda1" id="izquierda1" style="width: 50%;">Izquierda</button><button class="derecha1" id="derecha1" style="width: 50%;">Derecha</button>
+              <button class="abajo1" id="abajo1">Abajo</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

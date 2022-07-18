@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: lissajous.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: lissajous.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/* eslint-disable max-len */
+/* eslint-disable require-jsdoc */
+/* eslint-disable valid-jsdoc */
+/**
+ * Universidad de La Laguna
+ * Escuela Superior de Ingeniería y Tecnología
+ * Grado en Ingeniería Informática
+ * Programación de Aplicaciones Interactivas
+ *
+ * @author Daniel Dóniz García
+ * @since Mar 31 2022
+ * @desc Clase que representa la clase Tablero.
+ *
+ * @see {@link https://blog.logrocket.com/es-modules-in-node-today/}
+ * @see {@link https://medium.com/the-node-js-collection/an-update-on-es6-modules-in-node-js-42c958b890c}
+ */
+
+'use strict';
+
+import {Tablero} from './tablero.js';
+/**
+ * @class Lissajous
+ * @extends {Tablero}
+ */
+class Lissajous extends Tablero {
+  /**
+   * @property {CanvasRenderingContext2D} ctx
+   * @private
+   */
+  #ctx = this.getCTX();
+
+  /**
+   * @property {HTMLCanvasElement} canvas
+   * @private
+   */
+  #canvas = this.getCanvas();
+  /**
+   * @property {Object} ajustes - Objeto que contiene los valores de los parámetros de la línea.
+   * @private
+   */
+  #ajustes = {
+    numeroDePasos: 0.025,
+    anchuraMaxima: 1,
+    angulo: 0.4,
+    frecuenciaA: 30,
+    frecuenciaB: 45,
+    amplitudA: 50,
+    amplitudB: 50,
+    animado: true,
+    color: 'black',
+  };
+
+  /**
+   * @description Pinta en el canvas la curva de lissajous.
+   */
+  pintar() {
+    this.#ctx.strokeStyle = this.#ajustes.color;
+    this.#ctx.lineWidth = 3;
+    const anchura = (this.#canvas.width / 2) * this.#ajustes.amplitudA / 25 - 20;
+    const altura = (this.#canvas.height / 2) * this.#ajustes.amplitudB / 25 - 20;
+    let coordenadaX = anchura * Math.sin(this.#ajustes.angulo);
+    let coordenadaY = altura * Math.sin(this.#ajustes.frecuenciaB * 0);
+    this.#ctx.moveTo((this.#canvas.width - coordenadaX / 2) / 2, (this.#canvas.height + coordenadaY / 2) / 2);
+    const limite = 2 * Math.PI;
+    const muestreo = 0.00001;
+    for (let i = 0; i &lt;= limite; i+= muestreo) {
+      coordenadaX = anchura * Math.sin(this.#ajustes.frecuenciaA * i + this.#ajustes.angulo);
+      coordenadaY = altura * Math.sin(this.#ajustes.frecuenciaB * i);
+      this.#ctx.lineTo((this.#canvas.width - coordenadaX / 2) / 2, (this.#canvas.height + coordenadaY / 2) / 2);
+    }
+    this.#ctx.stroke();
+    this.#ctx.closePath();
+  }
+
+  /**
+   * @description Asigna el valor de la amplitud de la altura.
+   * @param {Number} valor - Número entero que representa la amplitud de la altura.
+   */
+  setAmplitudA(valor) {
+    this.#ajustes.amplitudA = valor;
+  }
+
+  /**
+   * @description Asigna el valor de la amplitud de la anchura.
+   * @param {Number} valor - Número entero que representa la amplitud de la anchura.
+   */
+  setAmplitudB(valor) {
+    this.#ajustes.amplitudB = valor;
+  }
+
+  /**
+   * @description Asigna el valor de la frecuenciaA de la línea.
+   * @param {Number} valor - Número entero que representa la frecuencia de la línea.
+   */
+  setFrecuenciaA(valor) {
+    this.#ajustes.frecuenciaA = valor;
+  }
+
+  /**
+   * @description Asigna el valor de la frecuenciaB de la línea.
+   * @param {Number} valor - Número entero que representa la frecuencia de la línea.
+   */
+  setFrecuenciaB(valor) {
+    this.#ajustes.frecuenciaB = valor;
+  }
+
+  /**
+   * @description Asigna el valor del ángulo de la línea.
+   * @param {Number} valor - Número entero que representa el ángulo de la línea.
+   */
+  setAngulo(valor) {
+    this.#ajustes.angulo = valor * 200;
+  }
+
+  /**
+   * @description Asigna el valor de la anchura de la línea.
+   * @param {Number} valor - Número entero que representa la anchura de la línea.
+   */
+  setAnimacion(valor) {
+    this.#ajustes.animado = valor;
+  }
+
+  /**
+   * @description Asigna el valor del color de la línea.
+   * @param {Number} valor - Número entero que representa el color de la línea.
+   */
+  setColor(valor) {
+    this.#ajustes.color = valor;
+  }
+}
+
+export {Lissajous};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Tablero.html">Tablero</a></li></ul><h3>Classes</h3><ul><li><a href="Lissajous.html">Lissajous</a></li><li><a href="module-Tablero-Tablero.html">Tablero</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ejecutar">ejecutar</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Wed May 11 2022 10:31:11 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
